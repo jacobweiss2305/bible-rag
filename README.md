@@ -1,5 +1,5 @@
 # bible-rag
-Testing different rag methods on the bible
+Question and answering using unsupervised cluster rag methods on the bible
 
 ## Setup
 
@@ -8,6 +8,15 @@ Testing different rag methods on the bible
 ```bash
 pip install -r requirements.txt
 ```
-3. Download the text files from OpenBible.com and save them in the `download_data` directory.
-4. Run the `download_data/main.py` script to download the text files.
-5. Run the `rag/main.py` script to generate the RAG embeddings.
+3. Set environment variables:
+```bash
+export PINECONE_API_KEY=YOUR_PINECONE_API_KEY
+export OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+```
+4. Run the following scripts in order:
+```bash
+python 01_upload.py
+python 02_cluster.py
+python 03_query.py
+```
+5. The script will output the answer to the user question.
