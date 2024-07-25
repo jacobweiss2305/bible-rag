@@ -19,7 +19,7 @@ index = initialize_pinecone("bible-rag")
 from vectordb import upsert_ticket
 from tqdm import tqdm
 
-for i, line in tqdm(enumerate(lines[:1]), total=len(lines), desc="Fetch or Upsert Embeddings"):
+for i, line in tqdm(enumerate(lines), total=len(lines), desc="Fetch or Upsert Embeddings"):
         id = str(i)
         metadata = {"id": id, "text": line, }
         upsert_ticket(index, id, line, metadata)

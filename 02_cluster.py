@@ -47,6 +47,8 @@ X_normalized = normalize_X(embeddings)
 max_k = 15
 optimal_k = find_optimal_clusters(X_normalized, max_k)
 
+# hardcoded for now
+optimal_k = 15
 labels = cluster_kmeans_embeddings(X_normalized, 15)
 df["cluster"] = labels
 df.to_csv("data.csv",)

@@ -34,17 +34,17 @@ assistant = Assistant(
     instructions = ["Answer the users question given the context provided."],
 )
 
+holistic_question = "User Question:\nlist all the relationships and show connections"
+
 answers = []
 for cluster_id in cluster_ids:
-    question = "User Question:\nlist all the relationships and show connections"
     context = "\nContext:\n" + sample_set[str(cluster_id)]
-    full_text = question + context
+    full_text = holistic_question + context
     answer = assistant.run(full_text, stream=False)
     answers.append(answer)
 
 # Step 5: Print the answers
-question = "User Question:\nlist all the relationships and show connections"
 full_answers = "\n".join(answers)
-full_question = question + "Context: \n" + full_answers
+full_question = holistic_question + "Context: \n" + full_answers
 result = assistant.run(full_answers, stream=False)
 print(result)
