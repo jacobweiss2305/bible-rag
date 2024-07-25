@@ -1,0 +1,11 @@
+black
+isort
+phidata
+openai
+pinecone-client
+tiktoken
+matplotlib
+pandas
+scikit-learn
+tqdm
+python-dotenv
