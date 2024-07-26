@@ -1,15 +1,11 @@
-
+import logging
 import os
 import time
 from typing import Dict, List, Tuple
 
 from openai import OpenAI
-
 from pinecone import Pinecone, ServerlessSpec
-
 from tqdm import tqdm
-
-import logging
 
 logging.basicConfig(
     level=logging.INFO,
@@ -29,11 +25,14 @@ load_dotenv()
 # Initialize OpenAI client
 client = OpenAI()
 
+
 def initialize_pinecone(index_name: str, dimension: int = 1536):
     """Initialize Pinecone and create an index if it doesn't exist."""
     logging.basicConfig(level=logging.INFO)
 
-    logging.info(f"Initializing Pinecone with index name: {index_name} and dimension: {dimension}")
+    logging.info(
+        f"Initializing Pinecone with index name: {index_name} and dimension: {dimension}"
+    )
     spec = ServerlessSpec(cloud="aws", region="us-east-1")
     pc = Pinecone(api_key=os.environ.get("PINECONE_API_KEY"))
 
@@ -51,6 +50,7 @@ def initialize_pinecone(index_name: str, dimension: int = 1536):
     logging.info(f"Index {index_name} is ready and initialized.")
     return index
 
+
 def embed_text(text: str) -> List[float]:
     """Generate embedding for a given text."""
     response = client.embeddings.create(
@@ -58,11 +58,13 @@ def embed_text(text: str) -> List[float]:
     )
     return response.data[0].embedding
 
+
 def upsert_ticket(index, id: str, text_to_embed: str, metadata: Dict):
     embedding = embed_text(text_to_embed)
     vectors = [{"id": id, "values": embedding, "metadata": metadata}]
     index.upsert(vectors)
     return embedding
+
 
 def query(index, id: str, top_k: int = 1) -> List[Dict]:
     """
@@ -75,6 +77,7 @@ def query(index, id: str, top_k: int = 1) -> List[Dict]:
         include_metadata=True,
     )
     return result
+
 
 def fetch_all_ids(index):
     """Fetch all ids from the index."""

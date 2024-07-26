@@ -1,1 +1,1 @@
-from .utils import initialize_pinecone, upsert_ticket, fetch_all_ids, query
+from .utils import fetch_all_ids, initialize_pinecone, query, upsert_ticket
