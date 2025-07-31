@@ -1,5 +1,5 @@
 # bible-rag
-Question and answering using unsupervised cluster rag methods and Phidata Assistant on the bible
+Question and answering using unsupervised clustering with agentic naming using the Bible as a corpus.
 
 ## Setup
 
