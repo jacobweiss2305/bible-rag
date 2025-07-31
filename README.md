@@ -1,5 +1,5 @@
 # bible-rag
-Question and answering using unsupervised clustering with agentic naming using the Bible as a corpus.
+Question and answering using unsupervised clustering with agentic cluster naming.
 
 ## Setup
 
