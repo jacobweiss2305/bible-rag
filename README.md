@@ -1,5 +1,9 @@
 # Building clusters on the embedding space of the Bible
-Question and answering using unsupervised clustering with agentic cluster naming.
+
+1. Download the bible
+2. Embedd chunks
+3. Cluster
+4. Use LLM to assign summaries of each cluster 
 
 ## Setup
 
