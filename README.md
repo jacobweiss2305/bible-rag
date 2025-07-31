@@ -1,4 +1,4 @@
-# bible-rag
+# Building clusters on the embedding space of the Bible
 Question and answering using unsupervised clustering with agentic cluster naming.
 
 ## Setup
